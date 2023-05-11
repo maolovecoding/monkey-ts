@@ -36,9 +36,9 @@ enum TOKEN_TYPE{
 }
 
 
-interface Token {
-  Type :TOKEN_TYPE
-  Literal :string
+export interface Token {
+  type :TOKEN_TYPE
+  literal :string
 }
 
 const keywords = new Map<string, TOKEN_TYPE>([
