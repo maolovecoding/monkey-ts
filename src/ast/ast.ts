@@ -47,10 +47,9 @@ class LetStatement implements Statement{
   }
 }
 
-class Identifier implements Statement{
-  token!: Token
-  value!: string
-  statementNode(){
+class Identifier implements Expression{
+  constructor(public token: Token, public value: string){}
+  expressionNode(){
   }
   tokenLiteral(): string {
     return this.token.literal
@@ -96,8 +95,8 @@ class ExpressionStatement implements Statement{
 }
 
 class IntegerLiteral implements Expression{
-  token!: Token
   value!: number
+  constructor(public token: Token){}
   expressionNode(){
   }
   tokenLiteral(): string {
@@ -147,4 +146,19 @@ class InfixExpression implements Expression{
     str+=')'
     return str 
   }
+}
+
+export type{
+  Expression,
+  Statement
+}
+export {
+  Program,
+  Identifier,
+  IntegerLiteral,
+  PrefixExpression,
+  InfixExpression,
+  LetStatement,
+  ReturnStatement,
+  ExpressionStatement
 }
